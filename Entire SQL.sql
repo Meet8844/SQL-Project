@@ -253,3 +253,27 @@ FROM
     departments
 WHERE
     dept_no IS NOT NULL;
+    
+    
+-- equal to
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name = 'Mark';
+
+-- not equal to != <>
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name != 'Mark';
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name <> 'Mark';
