@@ -659,3 +659,42 @@ FROM
     employees
 ORDER BY emp_no DESC
 LIMIT 10;
+
+
+-- COMMIT and ROLLBACK
+SELECT 
+    *
+FROM
+    departments_dup
+ORDER BY dept_no;
+
+COMMIT;
+
+UPDATE departments_dup 
+SET 
+    dept_no = 'do11',
+    dept_name = 'Quality Control';
+
+ROLLBACK;
+
+COMMIT;
+
+SELECT 
+    *
+FROM
+    departments
+ORDER BY dept_no DESC;
+
+COMMIT;
+
+UPDATE departments 
+SET 
+    dept_name = 'Data Analysis'
+WHERE
+    dept_name = 'Business Analysis';
+
+SELECT 
+    *
+FROM
+    departments
+ORDER BY dept_no DESC;
