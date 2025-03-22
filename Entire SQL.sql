@@ -136,3 +136,54 @@ FROM
     employees
 WHERE
     first_name NOT IN ('John' , 'Mark', 'Jacob');
+    
+    
+-- LIKE & NOT LIKE
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name LIKE ('%MAR%');
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name NOT LIKE ('%MAR%');
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name LIKE ('MARK%');
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    hire_date LIKE ('%2000%');
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    emp_no LIKE ('1000_');
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name LIKE ('%Jack%');
+
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    first_name NOT LIKE ('%Jack%');
