@@ -810,3 +810,84 @@ FROM
     salaries
 WHERE
     from_date > '1997-01-01';
+    
+    
+
+-- IFNULL() and COALESCE()
+SELECT 
+    *
+FROM
+    departments_dup
+ORDER BY dept_no; 
+
+ALTER TABLE departments_dup
+ADD COLUMN dept_manager VARCHAR(255);
+
+DELETE FROM departments_dup 
+WHERE
+    dept_no = 'd010';
+
+INSERT INTO departments_dup (dept_no)
+VALUE('d010');
+
+INSERT INTO departments_dup (dept_no)
+VALUE('d011');
+
+
+SELECT 
+    dept_no,
+    IFNULL(dept_name,
+            'Department name not provided') AS dept_name
+FROM
+    departments_dup;
+    
+SELECT 
+    dept_no,
+    COALESCE(dept_name,
+            'Department name not provided') AS dept_name
+FROM
+    departments_dup;
+        
+SELECT 
+    *
+FROM
+    departments_dup;
+
+SELECT 
+    dept_no, dept_name, COALESCE(dept_manager, dept_name, 'N/A')
+FROM
+    departments_dup
+ORDER BY dept_no ASC;
+
+SELECT 
+    dept_no,
+    dept_name,
+    COALESCE('Department manager name') AS fake_col
+FROM
+    departments_dup;
+
+SELECT 
+    dept_no,
+    dept_name,
+    COALESCE(dept_no, dept_name) AS dept_info
+FROM
+    departments_dup
+ORDER BY dept_no ASC;
+
+
+SELECT 
+    IFNULL(dept_no, 'N/A') AS dept_no,
+    IFNULL(dept_name,
+            'Department name not provided') AS dept_name,
+    COALESCE(dept_no, dept_name) AS dept_info
+FROM
+    departments_dup
+ORDER BY dept_no ASC;
+
+SELECT 
+    emp_no,
+    birth_date,
+    COALESCE(first_name, 'Not provided') AS first_name,
+    last_name
+FROM
+    employees;
