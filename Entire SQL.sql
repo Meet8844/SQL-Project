@@ -408,3 +408,45 @@ SELECT
     first_name
 FROM
     employees;
+    
+
+-- GROUP BY
+SELECT 
+    first_name
+FROM
+    employees
+GROUP BY first_name;
+
+SELECT DISTINCT
+    first_name
+FROM
+    employees;
+
+SELECT 
+    COUNT(first_name)
+FROM
+    employees
+GROUP BY first_name;
+
+SELECT 
+    first_name, COUNT(first_name)
+FROM
+    employees
+GROUP BY first_name
+ORDER BY first_name DESC;
+
+SELECT 
+    first_name, COUNT(first_name)
+FROM
+    employees AS names_count
+GROUP BY first_name
+ORDER BY first_name DESC;
+
+SELECT 
+    salary, COUNT(emp_no) AS emps_with_same_salary
+FROM
+    salaries
+WHERE
+    salary > '80000'
+GROUP BY salary
+ORDER BY salary;
