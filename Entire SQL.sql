@@ -722,3 +722,91 @@ FROM
 DELETE FROM departments 
 WHERE
     dept_no = 'd010';
+    
+    
+-- COUNT()
+SELECT 
+    *
+FROM
+    salaries
+ORDER BY salary DESC;
+
+SELECT 
+    COUNT(from_date)
+FROM
+    salaries;
+
+SELECT 
+    COUNT(DISTINCT from_date)
+FROM
+    salaries;
+
+SELECT 
+    COUNT(DISTINCT dept_no)
+FROM
+    dept_emp;
+
+-- SUM()
+SELECT 
+    SUM(salary)
+FROM
+    salaries;
+
+SELECT 
+    SUM(salary)
+FROM
+    salaries
+WHERE
+    from_date > '1997-01-01';
+
+-- MAX() MIN()
+SELECT 
+    MAX(salary)
+FROM
+    salaries;
+
+SELECT 
+    MIN(salary)
+FROM
+    salaries;
+
+SELECT 
+    MIN(emp_no)
+FROM
+    employees;
+
+SELECT 
+    MAX(emp_no)
+FROM
+    employees;
+
+-- AVG()
+SELECT 
+    AVG(salary)
+FROM
+    salaries;
+
+SELECT 
+    AVG(salary)
+FROM
+    salaries
+WHERE
+    from_date > '1997-01-01';
+
+-- ROUND()
+SELECT 
+    ROUND(AVG(salary))
+FROM
+    salaries;
+
+SELECT 
+    ROUND(AVG(salary), 2)
+FROM
+    salaries;
+
+SELECT 
+    ROUND(AVG(salary), 2)
+FROM
+    salaries
+WHERE
+    from_date > '1997-01-01';
