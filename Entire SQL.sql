@@ -588,3 +588,49 @@ emp_no, dept_no, from_date, to_date
 VALUES (
 999903, 'd005', '1997-10-01', '9999-01-01'
 );
+
+
+-- INSERT data INTO new table
+SELECT 
+    *
+FROM
+    departments
+LIMIT 10;
+
+CREATE TABLE departments_dup (
+    dept_no CHAR(4) NOT NULL,
+    dept_name VARCHAR(40) NOT NULL
+);
+
+INSERT INTO departments_dup
+(
+	dept_no,
+    dept_name
+)
+SELECT * FROM departments;
+
+SELECT 
+    *
+FROM
+    departments_dup
+ORDER BY dept_no;
+
+SELECT 
+    *
+FROM
+    departments;
+
+INSERT INTO departments
+(
+	dept_no, dept_name
+)
+VALUES 
+(
+	'd010',
+    'Business Analysis'
+);
+
+SELECT 
+    *
+FROM
+    departments;
